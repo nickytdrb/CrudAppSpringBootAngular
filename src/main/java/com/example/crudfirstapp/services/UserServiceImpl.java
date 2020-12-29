@@ -1,5 +1,6 @@
 package com.example.crudfirstapp.services;
 
+import com.example.crudfirstapp.dto.UserDTO;
 import com.example.crudfirstapp.models.User;
 import com.example.crudfirstapp.repos.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +28,17 @@ public class UserServiceImpl implements UserService {
         return users;
     }
 
+    @Override
+    public void insertUser(UserDTO userdto) {
+        // edw mesa prepei na kanw to UserDTO se User:
+        User user = new User(userdto.getUsername(), userdto.getFirstName(), userdto.getLastName());
+        //        to id to vazei monh ths h vash
+        userRepository.save(user);
+    }
+
+    @Override
+    public User getUser(long userId, String username) {
+        User user = userRepository.findUserByUserIdAndUsername(userId, username);
+        return user;
+    }
 }

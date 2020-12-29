@@ -12,7 +12,22 @@ public class User {
     private String firstName;
     private String lastName;
 
+    public User(String username, String firstName, String lastName) {
+        this.username = username;
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+
+    public User() {
+
+    }
+
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    to parapanw to vazw otan exw auto increment gia to ID sth vash
+//    wste otan prosthetw new user sto front, to id pou pairnw sto back na einai
+//    to epomeno apo to teleutaio id pou exw sth vash (se periptwsh pou to id einai auto increment)
+//    'h gnk to id pou phre apo th vash
     @Column(name = "user_id")
     public long getUserId() {
         return userId;
@@ -63,5 +78,15 @@ public class User {
     @Override
     public int hashCode() {
         return Objects.hash(userId, username, firstName, lastName);
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }

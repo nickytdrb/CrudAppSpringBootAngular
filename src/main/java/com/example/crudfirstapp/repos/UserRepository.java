@@ -28,4 +28,17 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 //    to parapanw findAllUsers ektelei (among other thigs) to apo panw query
 //    dld, akoma ki an den exei agkyles meta, dld den exei swma, kanei kati
 //    auto to kati, einai oti mou fernei olous tous Users, sto shmeio pou to kanw, dld sto UserServiceImpl
+
+
+//    sto repository (kai se ola ta repositories) paizw me User kai OXI me UserDTO
+//    h allagh apo UserDTO se User ginetai sto UserServiceImpl
+
+//    de xreiazetai na ftiaksoume methodo gia to save, proyparxei kapou mesa sto JpaRepository
+
+    //    apo katw vriskw enan user, an yparxei
+    @Query(value = "SELECT u FROM User u WHERE u.userId = ?1 AND u.username = ?2")
+//    akrivws apo panw me ta ?1 kai ?2 tou lew na kanei ena pros ena antistoisixh tis parametrous apo katw sth methodo
+
+//    edw apo katw th dhmiourgw th methodo, ara thelei kai tous typous twn arguments
+    User findUserByUserIdAndUsername(long userId, String username);
 }
