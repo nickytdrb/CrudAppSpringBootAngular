@@ -5,6 +5,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import javax.transaction.Transactional;
 import java.util.List;
 
 // to UserRepository to kanei implement to Spring
@@ -33,7 +34,6 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 //    sto repository (kai se ola ta repositories) paizw me User kai OXI me UserDTO
 //    h allagh apo UserDTO se User ginetai sto UserServiceImpl
 
-//    de xreiazetai na ftiaksoume methodo gia to save, proyparxei kapou mesa sto JpaRepository
 
     //    apo katw vriskw enan user, an yparxei
     @Query(value = "SELECT u FROM User u WHERE u.userId = ?1 AND u.username = ?2")
@@ -41,4 +41,10 @@ public interface UserRepository extends JpaRepository<User, Integer> {
 
 //    edw apo katw th dhmiourgw th methodo, ara thelei kai tous typous twn arguments
     User findUserByUserIdAndUsername(long userId, String username);
+// to akrivws apo panw userId einai ena id pou to phra apo to front, opws kai to username
+
+
+    //    gia to DELETE:
+    @Transactional
+    List<User> deleteUserByUserIdAndUsername(long userId, String username);
 }

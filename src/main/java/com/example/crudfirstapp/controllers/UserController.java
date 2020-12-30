@@ -37,6 +37,7 @@ public class UserController {
 //        metaferei sto repository ta dedomena pros apothhkeush
 //        kalw th methodo insertUser kai ths vazw mesa to userdto pou phra apo to front
         userService.insertUser(userdto);
+        // TODO Handle return exceptions from duplicate entries for user_id and username
     }
 
     //    edw apo katw thelw na parw enan xrhsth, wste meta na ton kanw edit kai update
@@ -48,6 +49,21 @@ public class UserController {
 //    h opoia legetai userId kai einai typou long
 
         User user = userService.getUser(userId, username);
+        return user;
+    }
+
+    //    UPDATE
+    @RequestMapping(value = "/user", method = RequestMethod.PUT)
+    public User changeUser(User user) {
+//        to apo panw user to pairnw apo to body tou PUT request
+        return userService.updateUser(user);
+    }
+
+    // DELETE
+    @RequestMapping(value = "/user", method = RequestMethod.DELETE)
+//    tou lew oti phra ton tade user kai ton esvhsa:
+    public User removeUser(@RequestParam("userId") long userId, @RequestParam("username") String username) {
+        User user = userService.deleteUser(userId, username);
         return user;
     }
 }

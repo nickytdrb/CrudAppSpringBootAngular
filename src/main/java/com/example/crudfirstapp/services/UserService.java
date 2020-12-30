@@ -11,4 +11,8 @@ public interface UserService {
     void insertUser(UserDTO user);
 
     User getUser(long userId, String username);
+
+    User updateUser(User user);
+
+    User deleteUser(long userId, String username);
 }

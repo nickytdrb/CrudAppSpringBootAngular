@@ -28,7 +28,7 @@ public class User {
 //    wste otan prosthetw new user sto front, to id pou pairnw sto back na einai
 //    to epomeno apo to teleutaio id pou exw sth vash (se periptwsh pou to id einai auto increment)
 //    'h gnk to id pou phre apo th vash
-    @Column(name = "user_id")
+    @Column(name = "user_id", unique = true)
     public long getUserId() {
         return userId;
     }
@@ -38,7 +38,7 @@ public class User {
     }
 
     @Id
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     public String getUsername() {
         return username;
     }

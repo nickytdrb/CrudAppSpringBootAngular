@@ -34,11 +34,24 @@ public class UserServiceImpl implements UserService {
         User user = new User(userdto.getUsername(), userdto.getFirstName(), userdto.getLastName());
         //        to id to vazei monh ths h vash
         userRepository.save(user);
+        //    de xreiazetai na ftiaksoume methodo gia to save, proyparxei kapou mesa sto JpaRepository
     }
 
     @Override
     public User getUser(long userId, String username) {
         User user = userRepository.findUserByUserIdAndUsername(userId, username);
         return user;
+    }
+
+    @Override
+    public User updateUser(User user) {
+        return userRepository.save(user);
+        //    de xreiazetai na ftiaksoume methodo gia to save, proyparxei kapou mesa sto JpaRepository
+    }
+
+    @Override
+    public User deleteUser(long userId, String username) {
+        System.out.println(userRepository.deleteUserByUserIdAndUsername(userId, username));
+        return new User();
     }
 }
