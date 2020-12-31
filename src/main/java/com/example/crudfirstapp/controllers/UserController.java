@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     //    edw apo katw vazw gia kp logo to interface, dld to UserService
     @Autowired
