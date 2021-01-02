@@ -25,6 +25,17 @@ export class UserService {
     // epd akrivws apo panw grafei<User[]>
     // to opoio einai array apo user(s)
     return this.http.get<User[]>(this.userUrl);
+    // to .get einai tou HttpClient 
+  }
+
+  // To Observable einai san to promise,
+  // edw apo katw, orizw th methodo.
+  // Afou paw kai thn kalesw sto new-user.components.ts,
+  // tha ths valw kai to subscribe (pou einai to antistoixo .then)
+  public addNewUser(user: User) {
+    return this.http.post<User>(this.userUrl, user);
+    // san deutero orisma to post pairnei o,ti tha graftei sto body tou request,
+    // to opoio einai ta stoixeia tou neou xrhsth
   }
 
 }

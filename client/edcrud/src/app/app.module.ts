@@ -6,17 +6,20 @@ import { AppComponent } from './app.component';
 import { UserTableComponent } from './user-table/user-table.component';
 import { HttpClientModule } from '@angular/common/http';
 import { UserService } from './services/user-service.service';
+import { NewUserComponent } from './new-user/new-user.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
-    UserTableComponent
+    UserTableComponent,
+    NewUserComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-
+    FormsModule
   ],
   providers: [UserService],
   bootstrap: [AppComponent]

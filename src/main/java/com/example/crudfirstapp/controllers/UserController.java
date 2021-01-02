@@ -4,10 +4,7 @@ import com.example.crudfirstapp.dto.UserDTO;
 import com.example.crudfirstapp.models.User;
 import com.example.crudfirstapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -32,7 +29,7 @@ public class UserController {
     //    me th methodo post, o server perimenei na parei enan neo user apo to xrhsth
     //    CREATE
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public void insertNewUser(UserDTO userdto) {
+    public void insertNewUser(@RequestBody UserDTO userdto) {
 //        akrivws apo panw, gia na kserei to back oti tha tou erthei apo to front ena object typou UserDTO
 //        prepei mesa sto UserServiceImpl na ftiaksw mia nea methodo pou tha analamvanei na
 //        metaferei sto repository ta dedomena pros apothhkeush
