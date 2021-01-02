@@ -4,14 +4,12 @@ import com.example.crudfirstapp.dto.UserDTO;
 import com.example.crudfirstapp.models.User;
 import com.example.crudfirstapp.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("http://localhost:4200")
 public class UserController {
     //    edw apo katw vazw gia kp logo to interface, dld to UserService
     @Autowired

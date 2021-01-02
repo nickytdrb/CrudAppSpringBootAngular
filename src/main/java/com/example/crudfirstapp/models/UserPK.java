@@ -9,7 +9,7 @@ public class UserPK implements Serializable {
     private long userId;
     private String username;
 
-    @Column(name = "user_id")
+    @Column(name = "user_id", unique = true)
     @Id
     public long getUserId() {
         return userId;
@@ -19,7 +19,7 @@ public class UserPK implements Serializable {
         this.userId = userId;
     }
 
-    @Column(name = "username")
+    @Column(name = "username", unique = true)
     @Id
     public String getUsername() {
         return username;
