@@ -52,7 +52,7 @@ public class UserController {
 
     //    UPDATE
     @RequestMapping(value = "/user", method = RequestMethod.PUT)
-    public User changeUser(User user) {
+    public User changeUser(@RequestBody User user) {
 //        to apo panw user to pairnw apo to body tou PUT request
         return userService.updateUser(user);
     }
