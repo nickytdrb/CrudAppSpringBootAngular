@@ -37,6 +37,7 @@ export class NewUserComponent implements OnInit {
   }
 
   goToUserList() {
+    // to navigate kanei to redirect
     this.router.navigate(['/users']);
   }
 

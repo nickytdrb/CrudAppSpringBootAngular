@@ -44,21 +44,19 @@ export class UserService {
   // tha teleiwsei h syndesh me to back, opote theloume auto na ginei asygxrona
   // o,ti tou valw mesa sto subscribe tha perimenei na ektelestei.
   // to subscribe to vazw ekei pou kalw th methodo 
-  public findOneUser(user: User): Observable<User> {
+  public findOneUser(user_id: string, user_name: string): Observable<User> {
     // auth h methodos ousiastika kanei ena get sto /user?userId=3&username=dima
   
-    return this.http.get<User>(this.userUrl, 
-      {
+    return this.http.get<User>(this.userUrl + `?userId=${user_id}&username=${user_name}`
         // sto user service vazw ta panta opws einai grammena sto back
         // otan kanw http get, milaw me to back end
         // mesa sto params mporoume na valoume mono String, opote paw kai metatrepw 
         // to userId se String
-        params: {
-          userId: user.userId.toString(),
-          username: user.username
-        }
-      }
       );
+  }
+
+  public updateOneUser(user: User) {
+    return this.http.put<User>(this.userUrl, user);
   }
 
 }
