@@ -19,11 +19,9 @@
         <td>{{ user.firstName }}</td>
         <td>{{ user.lastName }}</td>
         <td>
-          <button type="button" class="btn btn-sm">
-            <a class="text-light">
-              <i class="far fa-edit fa-lg "></i>
-            </a>
-          </button>
+          <a class="btn btn-sm" [routerLink]="['/edit-user']" [queryParams]="{userId: user.userId,username: user.username}" routerLinkActive="active" role="button">
+              <i class="far fa-edit fa-lg text-light"></i>
+          </a>
           <button type="button" class="btn btn-sm">
             <a class="text-light">
               <i class="far fa-trash-alt fa-lg"></i>
