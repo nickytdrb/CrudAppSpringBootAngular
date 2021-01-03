@@ -15,8 +15,8 @@ export class UserService {
   // to : shmainei oti meta apo auto akolouthei o typos tou antikeimenou
   // to HttpClient einai o typos ths metavlhths
   constructor(private http: HttpClient) { 
-    this.usersUrl = 'http://192.168.1.3:8080/users';
-    this.userUrl = 'http://192.168.1.3:8080/user';
+    this.usersUrl = 'http://localhost:8080/users';
+    this.userUrl = 'http://localhost:8080/user';
   }
 
   // oi methodoi pou tha kalesw meta wste na ferw tous xrhstes apo to back end 
