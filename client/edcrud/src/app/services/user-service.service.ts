@@ -59,4 +59,8 @@ export class UserService {
     return this.http.put<User>(this.userUrl, user);
   }
 
+  public deleteOneUser(user: User){
+    return this.http.delete(this.userUrl + `?userId=${user.userId}&username=${user.username}`);
+  }
+
 }

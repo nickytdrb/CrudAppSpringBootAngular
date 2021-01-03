@@ -22,7 +22,8 @@
           <a class="btn btn-sm" [routerLink]="['/edit-user']" [queryParams]="{userId: user.userId,username: user.username}" routerLinkActive="active" role="button">
               <i class="far fa-edit fa-lg text-light"></i>
           </a>
-          <button type="button" class="btn btn-sm">
+          
+          <button type="button" class="btn btn-sm" (click)="deleteUser(user)">
             <a class="text-light">
               <i class="far fa-trash-alt fa-lg"></i>
             </a>
