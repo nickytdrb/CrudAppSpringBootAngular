@@ -20,7 +20,6 @@ export class UserTableComponent implements OnInit {
     // to data apo katw tha mporouse na einai o,ti onoma thelw
     this.userService.findAllUsers().subscribe(data => {
       this.users = data;
-      console.log(this.users);
     });
   }
 

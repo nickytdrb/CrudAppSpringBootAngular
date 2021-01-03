@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { User } from '../models/user';
 
@@ -8,13 +8,15 @@ import { User } from '../models/user';
 })
 export class UserService {
 
+  private usersUrl: string;
   private userUrl: string;
 
   // to http einai to onoma ths metavlhths
   // to : shmainei oti meta apo auto akolouthei o typos tou antikeimenou
   // to HttpClient einai o typos ths metavlhths
   constructor(private http: HttpClient) { 
-    this.userUrl = 'http://192.168.1.3:8080/users';
+    this.usersUrl = 'http://192.168.1.3:8080/users';
+    this.userUrl = 'http://192.168.1.3:8080/user';
   }
 
   // oi methodoi pou tha kalesw meta wste na ferw tous xrhstes apo to back end 
@@ -24,7 +26,7 @@ export class UserService {
     // prepei na ftiaksw mia klash pou na legetai user,
     // epd akrivws apo panw grafei<User[]>
     // to opoio einai array apo user(s)
-    return this.http.get<User[]>(this.userUrl);
+    return this.http.get<User[]>(this.usersUrl);
     // to .get einai tou HttpClient 
   }
 
@@ -33,9 +35,30 @@ export class UserService {
   // Afou paw kai thn kalesw sto new-user.components.ts,
   // tha ths valw kai to subscribe (pou einai to antistoixo .then)
   public addNewUser(user: User) {
-    return this.http.post<User>(this.userUrl, user);
+    return this.http.post<User>(this.usersUrl, user);
     // san deutero orisma to post pairnei o,ti tha graftei sto body tou request,
     // to opoio einai ta stoixeia tou neou xrhsth
+  }
+
+  // to Observable, pou einai san promise, to vazoume epd den kseroume pote
+  // tha teleiwsei h syndesh me to back, opote theloume auto na ginei asygxrona
+  // o,ti tou valw mesa sto subscribe tha perimenei na ektelestei.
+  // to subscribe to vazw ekei pou kalw th methodo 
+  public findOneUser(user: User): Observable<User> {
+    // auth h methodos ousiastika kanei ena get sto /user?userId=3&username=dima
+  
+    return this.http.get<User>(this.userUrl, 
+      {
+        // sto user service vazw ta panta opws einai grammena sto back
+        // otan kanw http get, milaw me to back end
+        // mesa sto params mporoume na valoume mono String, opote paw kai metatrepw 
+        // to userId se String
+        params: {
+          userId: user.userId.toString(),
+          username: user.username
+        }
+      }
+      );
   }
 
 }

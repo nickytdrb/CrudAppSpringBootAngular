@@ -22,10 +22,7 @@ export class NewUserComponent implements OnInit {
   constructor(
     private userService: UserService,
     private router: Router
-    ) {
-    // gia na gemisw ton user me ta dedomena, prepei prwta na ton axrikopoihsw
-    this.user = new User();
-   }
+  ) { }
 
   onSubmit() {
     // Prepei na kalesw to service ths angular, gia na kanw ena post request 
@@ -44,6 +41,7 @@ export class NewUserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-
+    // gia na gemisw ton user me ta dedomena, prepei prwta na ton axrikopoihsw
+    this.user = new User();
   }
 }
