@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<div class="container">
+  <table class="table table-hover table-dark">
+    <thead>
+      <tr>
+        <th scope="col"></th>
+        <th scope="col">Username</th>
+        <th scope="col">First Name</th>
+        <th scope="col">Last Name</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- pairnei th metavlhth users pou thn exw orisei sto app-routing.module.ts -->
+      <!-- kai th diatrexei -->
+      <!-- me thn telitsa pairnw auta pou exei mesa -->
+      <tr *ngFor="let user of users; let i=index">
+        <th scope="row">{{ i+1 }}</th>
+        <td>{{ user.username }}</td>
+        <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>
+          <a class="btn btn-sm" [routerLink]="['/edit-user']" [queryParams]="{userId: user.userId,username: user.username}" routerLinkActive="active" role="button">
+              <i class="far fa-edit fa-lg text-light"></i>
+          </a>
+          
+          <button type="button" class="btn btn-sm" (click)="deleteUser(user)">
+            <a class="text-light">
+              <i class="far fa-trash-alt fa-lg"></i>
+            </a>
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <a routerLink="/new-user" routerLinkActive="active"><button class="btn btn-secondary btn-circle btn-lg bottom-center"
+      type="button">
+      <h3>+</h3>
+    </button></a>
+</div>

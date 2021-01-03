@@ -29,7 +29,7 @@ public class UserController {
     //    me th methodo post, o server perimenei na parei enan neo user apo to xrhsth
     //    CREATE
     @RequestMapping(value = "/users", method = RequestMethod.POST)
-    public void insertNewUser(UserDTO userdto) {
+    public void insertNewUser(@RequestBody UserDTO userdto) {
 //        akrivws apo panw, gia na kserei to back oti tha tou erthei apo to front ena object typou UserDTO
 //        prepei mesa sto UserServiceImpl na ftiaksw mia nea methodo pou tha analamvanei na
 //        metaferei sto repository ta dedomena pros apothhkeush
