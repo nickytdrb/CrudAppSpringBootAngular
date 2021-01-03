@@ -35,7 +35,6 @@ public class UserController {
 //        metaferei sto repository ta dedomena pros apothhkeush
 //        kalw th methodo insertUser kai ths vazw mesa to userdto pou phra apo to front
         userService.insertUser(userdto);
-        // TODO Handle return exceptions from duplicate entries for user_id and username
     }
 
     //    edw apo katw thelw na parw enan xrhsth, wste meta na ton kanw edit kai update
